@@ -42,12 +42,10 @@ int main() {
         gettimeofday(&start, NULL);
         ms(arr, 0, n - 1);
         gettimeofday(&end, NULL);
-        
-        long sec = end.tv_sec - start.tv_sec;
-        long micro = end.tv_usec - start.tv_usec;
-        double elap = sec + micro / 1000000.0;
-        
-        printf("Size: %d, Time taken: %f seconds\n", n, elap);
+
+        double time = (end.tv_sec - start.tv_sec) * 1000000.0 + (end.tv_usec - start.tv_usec);
+        printf("Size: %d, Time taken: %.8f microseconds\n", n, time);
+
     }
     
     return 0;
